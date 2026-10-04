@@ -1,0 +1,7 @@
+# Analytical engine. Reads the committed Parquet directly, in memory: this
+# project has no ingestion, no database file and no transformation framework,
+# so duckdb is the only dependency.
+#
+# Pinned to the 1.4 series, the version the upstream pipeline exports with.
+# Verified on Python 3.12.
+duckdb==1.4.*

@@ -1,0 +1,17 @@
+concept,tag_name,tag_preference,period_type,coverage_companies,note
+revenue,RevenueFromContractWithCustomerExcludingAssessedTax,1,duration,4,"Preferred: the post-ASC-606 element, and the one that excludes taxes collected for others."
+revenue,RevenueFromContractWithCustomerIncludingAssessedTax,2,duration,1,"Same concept including assessed taxes. One company, kept so the fallback is ordered rather than arbitrary."
+revenue,Revenues,3,duration,6,The pre-606 total. Last because it is the least specific of the three.
+operating_income,OperatingIncomeLoss,1,duration,10,"Single tag, all ten companies. No fallback needed."
+net_income,NetIncomeLoss,1,duration,8,Result attributable to the parent. Preferred: it is the figure per-share calculations use.
+net_income,ProfitLoss,2,duration,6,Result including noncontrolling interests. Lifts coverage from 8 to 10; see the equity pairing rule in docs/concept_mapping_rationale.md.
+net_income_consolidated,ProfitLoss,1,duration,6,"Consolidated result, the scope operating cash flow is reported on. Used only against cash flow, in the earnings-quality metrics."
+net_income_consolidated,NetIncomeLoss,2,duration,8,"Fallback for the four companies that file no ProfitLoss. None of them carries a noncontrolling interest, so for them the parent result is the consolidated one."
+total_assets,Assets,1,instant,10,"Single tag, all ten companies."
+total_liabilities,Liabilities,1,instant,9,Missing for one company. Derived where absent as assets - equity_incl_nci - redeemable_nci; the identity closes exactly. See the rationale.
+stockholders_equity,StockholdersEquity,1,instant,10,Equity excluding noncontrolling interests. Chosen over the NCI-inclusive element on coverage: 10 against 7.
+stockholders_equity_incl_nci,StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest,1,instant,7,"Not a fallback for stockholders_equity. Used only as the matching denominator when net_income resolves to ProfitLoss, and to derive total_liabilities."
+redeemable_nci,RedeemableNoncontrollingInterestEquityCarryingAmount,1,instant,2,Mezzanine equity: outside permanent equity but not a liability. Never a numerator or denominator on its own; it exists so the balance-sheet identity closes.
+current_assets,AssetsCurrent,1,instant,10,"Single tag, all ten companies."
+current_liabilities,LiabilitiesCurrent,1,instant,10,"Single tag, all ten companies."
+operating_cash_flow,NetCashProvidedByUsedInOperatingActivities,1,duration,10,"Single tag, all ten companies. The element excluding discontinued operations reaches none of them."

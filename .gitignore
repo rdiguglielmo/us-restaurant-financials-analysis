@@ -1,0 +1,28 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Secrets - never commit
+.env
+
+# This repository has no ingestion and no database. The Parquet in
+# data/parquet/ is committed on purpose: it is what lets the project run
+# straight after a clone, without building the upstream pipeline first.
+*.duckdb
+*.duckdb.wal
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Power BI Desktop local state: localSettings.json holds a DPAPI-encrypted
+# signature tied to one machine and user, and cache.abf is the imported data
+# cache.
+powerbi/**/.pbi/localSettings.json
+powerbi/**/.pbi/cache.abf
+
+# Editor state
+.vscode/
