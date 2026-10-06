@@ -22,6 +22,19 @@ For one company and one period, the candidate facts are ordered by
    two rows that both survive every hazard flag. Without the tie-break the join
    duplicates. See [`engineering-notes.md`](engineering-notes.md).
 
+Cheesecake Factory's net income for the first quarter of 2025 has seven facts,
+all 32.9 m. Three are a column of the equity statement and one was superseded,
+so the flags leave three, and both rules act on them:
+
+| Element | Taxonomy | Taken for |
+|---|---|---|
+| `NetIncomeLoss` | 2024 | `net_income`, first by preference |
+| `ProfitLoss` | 2025 | `net_income_consolidated`, first by preference, then the newer version |
+| `ProfitLoss` | 2024 | Neither |
+
+CHECK 3 in [`../sql/01_concept_resolution.sql`](../sql/01_concept_resolution.sql)
+prints all seven.
+
 ## Coverage is measured with the flags applied
 
 The count of companies per element changes once the aggregation rules are

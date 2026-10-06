@@ -92,7 +92,7 @@ check rules this project had to establish rather than inherit: the taxonomy-vers
 tie-break, the balance-sheet identity and the return-on-equity pairing, all three
 set out in [`docs/engineering-notes.md`](docs/engineering-notes.md).
 
-The analysis itself runs as one chain, `sql/01` to `sql/05`, and carries 28
+The analysis itself runs as one chain, `sql/01` to `sql/05`, and carries 29
 more checks written the same way. They cover:
 
 - the statements, against the gate and against figures read from the filed
